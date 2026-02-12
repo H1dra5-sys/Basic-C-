@@ -6,10 +6,8 @@
 
 using System;
 
-namespace FirstLaba { 
-
-  class Program { 
-
+namespace FirstLaba {
+  class Program {
     static void Main() { 
 
       int number, power, newNumber, count, numberN;
@@ -25,20 +23,29 @@ namespace FirstLaba {
       Console.Write("Enter the degree of the number: ");
       power = Convert.ToInt32(Console.ReadLine());
 
-      for (count = 0; count < power; ++count) { 
+      for (count = 0; count < power; ++count)
+      {
         newNumber = newNumber * number;
-      };
+      }
       Console.WriteLine(newNumber);
       Console.WriteLine();
 
       Console.WriteLine("Task 2:");
       Console.Write("Enter number >= 100: ");
       numberX = Console.ReadLine();
-      secondDigit = numberX[1];
-      numberX = numberX.Remove(1, 1);
-      numberX = numberX + secondDigit;
-      numberN = Convert.ToInt32(numberX);
-      Console.WriteLine(numberN);
+      if (numberX.Length < 3) {
+        Console.WriteLine("Error");
+      }
+      else if (numberX[0] == '-') {
+        Console.WriteLine("Error");
+      }
+      else {
+        secondDigit = numberX[1];
+        numberX = numberX.Remove(1, 1);
+        numberX = numberX + secondDigit;
+        numberN = Convert.ToInt32(numberX);
+        Console.WriteLine(numberN);
+      }
     }
   }
 }
